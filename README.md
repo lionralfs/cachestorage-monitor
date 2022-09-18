@@ -1,19 +1,5 @@
 [![CI](https://github.com/lionralfs/cachestorage-monitor/actions/workflows/node.js.yml/badge.svg)](https://github.com/lionralfs/cachestorage-monitor/actions/workflows/node.js.yml)
 
-## title?
-
-- cachestorage-tracker
-- caches-tracker
-- sw-caches-hitrate
-
-## todos / to think about
-
-- What happens when user calls `onCacheTrackerUpdate` with different cb function or delay?
-- What happens when used outside of service worker and page is closed/navigated away from?
-  - --> visibilitychange event listener (implemented, needs tests)
-- What about timestamps?
-  - --> performance.now (implemented, tested)
-
 ## What does this do?
 
 This library proxies calls to `read` operations on the [`CacheStorage`](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage) interface using [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) to automatically detect and record cache hits and misses. The wrapped cache-reading operations are:
