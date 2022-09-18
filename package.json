@@ -2,7 +2,7 @@
 	"name": "cachestorage-monitor",
 	"description": "Easily monitor your CacheStorage reads",
 	"type": "module",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"main": "dist/index.js",
 	"scripts": {
 		"build": "esbuild src/index.js --outfile=dist/index.js --minify",
