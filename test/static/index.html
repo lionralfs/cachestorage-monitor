@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Test page</title>
+	</head>
+	<body></body>
+
+	<script>
+		const swFile = new URLSearchParams(location.search).get('swFile');
+		if (!swFile) {
+			throw new Error('Missing swFile search parameter');
+		}
+
+		navigator.serviceWorker
+			.register(`/test/static/${swFile}.js`)
+			.catch((err) => {
+				console.error('SW registration failed:', err);
+			});
+	</script>
+</html>

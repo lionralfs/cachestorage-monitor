@@ -1,0 +1,54 @@
+{
+	"name": "cachestorage-monitor",
+	"description": "Easily monitor your CacheStorage reads",
+	"type": "module",
+	"version": "0.0.0",
+	"main": "dist/index.js",
+	"scripts": {
+		"build": "esbuild src/index.js --outfile=dist/index.js --minify",
+		"test": "npm run test:unit && npm run test:integration",
+		"test:unit": "mocha test/unit/**/*.js",
+		"test:integration": "playwright test",
+		"prepare": "husky install",
+		"prettier": "npx prettier . --check",
+		"prepublishOnly": "npm run build && npm run test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/lionralfs/cachestorage-monitor.git"
+	},
+	"keywords": [
+		"cache",
+		"cachestorage",
+		"monitor",
+		"tracker",
+		"service",
+		"worker"
+	],
+	"author": "Lion Ralfs <lion.ralfs@gmail.com> (https://lionralfs.dev/)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/lionralfs/cachestorage-monitor/issues"
+	},
+	"homepage": "https://github.com/lionralfs/cachestorage-monitor#readme",
+	"devDependencies": {
+		"@playwright/test": "^1.25.1",
+		"chai": "^4.3.6",
+		"esbuild": "^0.15.5",
+		"husky": "^8.0.1",
+		"lint-staged": "^13.0.3",
+		"mocha": "^10.0.0",
+		"prettier": "^2.7.1",
+		"serve": "^14.0.1",
+		"service-worker-mock": "^2.0.5",
+		"sinon": "^14.0.0"
+	},
+	"lint-staged": {
+		"*.{js,css,md,yaml,yml}": "prettier --write"
+	},
+	"files": [
+		"src/*",
+		"dist/*",
+		"CHANGELOG.md"
+	]
+}

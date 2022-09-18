@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Test page</title>
+	</head>
+	<body></body>
+
+	<script src="/dist/index.js"></script>
+	<script>
+		const timeoutMs = new URLSearchParams(location.search).get('timeoutMs');
+		console.log(Number(timeoutMs));
+		if (!timeoutMs) {
+			throw new Error('Missing timeoutMs search parameter');
+		}
+
+		let calls = 0;
+		onCacheTrackerUpdate((events) => {
+			window.localStorage.setItem(`call-${++calls}`, JSON.stringify(events));
+		}, Number(timeoutMs));
+		window.__ready = true;
+	</script>
+</html>
