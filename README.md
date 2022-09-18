@@ -1,4 +1,6 @@
-[![CI](https://github.com/lionralfs/cachestorage-monitor/actions/workflows/node.js.yml/badge.svg)](https://github.com/lionralfs/cachestorage-monitor/actions/workflows/node.js.yml)
+[![npm](https://img.shields.io/npm/v/cachestorage-monitor)](https://www.npmjs.com/package/cachestorage-monitor)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/cachestorage-monitor)
+[![build status](https://github.com/lionralfs/cachestorage-monitor/actions/workflows/node.js.yml/badge.svg)](https://github.com/lionralfs/cachestorage-monitor/actions/workflows/node.js.yml)
 
 ## What does this do?
 
@@ -57,6 +59,24 @@ You then have access to the global `onCacheTrackerUpdate` function to configure 
    - The function that should be called when any cache-reads have been detected. The cache events are then passed as its only argument.
 2. `timeout` (`number`)
    - The number of milliseconds to wait before calling callback. Passing a higher number here causes the events to be batched together more which potentially results in less but larger updates.
+
+### Example
+
+This service worker example sends cache events in batches to a custom HTTP telemetry endpoint:
+
+```js
+import 'cachestorage-monitor';
+
+onCacheTrackerUpdate((events) => {
+	fetch('/telemetry', {
+		method: 'POST',
+		keepalive: true,
+		body: JSON.stringify(events), // adjust as necessary
+	});
+}, 15_000); // batch by 15 seconds (only fires if any events occurs)
+
+// ... rest of your service worker code ...
+```
 
 ## License
 
