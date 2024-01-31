@@ -34,7 +34,7 @@
 	"devDependencies": {
 		"@playwright/test": "^1.25.1",
 		"chai": "^5.0.0",
-		"esbuild": "^0.19.0",
+		"esbuild": "^0.20.0",
 		"husky": "^9.0.7",
 		"lint-staged": "^15.0.2",
 		"mocha": "^10.0.0",
