@@ -41,7 +41,7 @@
 		"prettier": "^3.0.0",
 		"serve": "^14.0.1",
 		"service-worker-mock": "^2.0.5",
-		"sinon": "^17.0.0"
+		"sinon": "^18.0.0"
 	},
 	"lint-staged": {
 		"*.{js,css,md,yaml,yml}": "prettier --write"
